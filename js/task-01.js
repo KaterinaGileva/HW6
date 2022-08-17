@@ -22,6 +22,7 @@ console.log('Number of categories:', listCategories.length);
 
 listCategories.forEach(function (categories){
 console.log('Category:',categories.firstElementChild.textContent);
-console.log('Elements:',categories.lastElementChild.children.length);
+    console.log('Elements:', categories.lastElementChild.children.length);
+    console.log('\n');
 })
 
