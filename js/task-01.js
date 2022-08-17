@@ -20,3 +20,8 @@
 const listCategories = document.querySelectorAll('.item');
 console.log('Number of categories:', listCategories.length);
 
+listCategories.forEach(function (categories){
+console.log('Category:',categories.firstElementChild.textContent);
+console.log('Elements:',categories.lastElementChild.children.length);
+})
+

@@ -12,3 +12,9 @@ const ingredients = [
 //Добавит название ингредиента как его текстовое содержимое.
 //Добавит элементу класс item.
 //После чего вставит все <li> за одну операцию в список ul#ingredients.
+const elIngredients = document.querySelector("ul#ingredients");
+console.log(elIngredients);
+const itemIngredients = document.createElement('li');
+itemIngredients.textContent = 'Potatoes';
+elIngredients.prepend(itemIngredients);
+console.log(itemIngredients);
