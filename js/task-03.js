@@ -13,21 +13,6 @@ const images = [
   },
 ];
 
-//Добавь минимальное оформление галереи флексбоксами 
-//или гридами через CSS классы.
-
-//список флекс, между лишками марджины или геп прописать. 
-//На фото задать высоту и ширину по лишке, в общем минимальную сетку сделать
-
-
-//for (const image of images)
-//{const gallery = document.querySelector(".gallery");
-
- // gallery.insertAdjacentHTML('afterbegin', `<li><img src = "${image.url}"
- //alt = "${image.alt}" width = "90%vw" height = "90%vh" </li>`);
-//}
-//console.log(images);
-
 const makeGalleryImagesMarkup = (galleryimages) =>
   galleryimages.map(({ url, alt }) => `<li><img src = "${url}"
   alt = "${alt}" width = "90%vw" height = "90%vh" </li>`).join("");
