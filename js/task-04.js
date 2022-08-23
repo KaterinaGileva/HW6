@@ -12,8 +12,6 @@ const increment = () => {
 
 };
 
-
-
 const decrement = () => {
   counterValue -= 1;
 
