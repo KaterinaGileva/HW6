@@ -17,9 +17,19 @@ const refs = {
   }
 
 const testValidation = (event) => {
-  if (event.currentTarget.value === "") return;
-  event.currentTarget.value.length > refs.validationInput.dataset.length? refs.validationInput.classList.add('invalid'): refs.validationInput.classList.add('valid');
+  const onInput = event.currentTarget;
+  const datasetLength = Number(onInput.dataset.length);
+  
+  if (onInput.value.length
+    === datasetLength) {
+    onInput.classList.add('valid'); 
+  }
+  else {
+    onInput.classList.add('invalid');
+  }
+  if (onInput.value === "") {
+   refs.validationInput.classList.remove('valid', 'invalid');
+ }
 };
-
 
 refs.validationInput.addEventListener('blur', testValidation);

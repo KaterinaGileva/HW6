@@ -13,13 +13,12 @@ const ingredients = [
 //Добавит элементу класс item.
 //После чего вставит все <li> за одну операцию в список ul#ingredients.
 const ulIng = document.querySelector("ul");
-const elements = [];
-for (let i = 0; i < ingredients.length; i += 1){
-  const ing = ingredients[i];
+const elements = ingredients.map(ingridient => {
   const liIng = document.createElement('li');
-  liIng.textContent = ing;
+  liIng.textContent = ingridient;
   liIng.classList.add('item');
-  elements.push(liIng);
-}
+  return liIng;
+});
+console.log(elements);
 ulIng.append(...elements);
 console.log(ulIng);
