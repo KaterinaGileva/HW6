@@ -23,9 +23,11 @@ const testValidation = (event) => {
   if (onInput.value.length
     === datasetLength) {
     onInput.classList.add('valid'); 
+    onInput.classList.remove('invalid'); 
   }
   else {
     onInput.classList.add('invalid');
+    onInput.classList.remove('valid');
   }
   if (onInput.value === "") {
    refs.validationInput.classList.remove('valid', 'invalid');
