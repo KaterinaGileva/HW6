@@ -3,49 +3,37 @@ function getRandomHexColor() {
 }
 
 const refs = {
-  inputEl: document.querySelector("#controls > input"),
+  inputEl: document.querySelector("input"),
   createBtnEl: document.querySelector("[data-create]"),
   destroyBtnEl: document.querySelector("[data-destroy]"),
   boxesCountainerEl: document.querySelector("#boxes"),
 };
 
-let baseSizes = 20;
-let addValue = 10;
-
-refs.inputEl.addEventListener("input", onInputClick);
-
-//! Получаем значение amount
-function onInputClick(event) {
-  let amount = event.currentTarget.value;
-  console.log("Количество дивов -", amount);
-
-  const elements = [];
-
   refs.createBtnEl.addEventListener("click", createBoxes);
   refs.destroyBtnEl.addEventListener("click", onDestroyBtnElClick);
 
   //! Цикл создания div
-  function createBoxes() {
+  function createBoxes(amount) {
+    const divs = [];
+    amount = refs.inputEl.value;
     for (let i = 1; i <= amount; i += 1) {
       console.log("amount", amount);
 
-      const divEl = document.createElement("div");
-      divEl.style.backgroundColor = getRandomHexColor();
-      divEl.style.width = baseSizes + addValue + `px`;
-      divEl.style.height = baseSizes + addValue + `px`;
-      addValue += 10;
-      console.log("width", divEl.style.width);
-      console.log("height", divEl.style.height);
-      elements.push(divEl);
+      const div = document.createElement("div");
+      div.style.backgroundColor = getRandomHexColor();
+      div.style.width =  `${30 + i * 10}px`;
+      div.style.height = `${30 + i * 10}px`;
+
+      console.log("width", div.style.width);
+      console.log("height", div.style.height);
+      divs.push(div);
     }
-    refs.boxesCountainerEl.append(...elements);
+    refs.boxesCountainerEl.append(...divs);
   }
   //! Очищаем div#boxes
   function onDestroyBtnElClick() {
     refs.boxesCountainerEl.innerHTML = "";
     refs.inputEl.value = "";
-    baseSizes = 20;
-
+  
     console.log("div#boxes очищен!");
   }
-}
